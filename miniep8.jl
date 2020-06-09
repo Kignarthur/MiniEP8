@@ -21,7 +21,7 @@ function checkInsertion()
     @test insertion([]) == []
     @test insertion(["10♥"]) == ["10♥"]
     @test insertion(["K♦", "K♠"]) == ["K♦", "K♠"]
-    @test insertion(["A♠","4♥", "3♦", "2♠", "K♠"]) ==["1♠","2♠","3♦","4♥","K♠","A♠"]
+    @test insertion(["A♠","4♥", "3♦", "2♠", "K♠"]) ==["2♠","3♦","4♥","K♠","A♠"]
     @test insertion(["A♠","A♠","A♠","2♠"]) == ["2♠","A♠","A♠","A♠"]
     @test insertion(["10♥","K♠","A♠"]) == ["10♥","K♠","A♠"]
     println("OK")
