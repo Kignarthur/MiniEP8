@@ -99,3 +99,34 @@ function insertion(vector)
 end
 
 checkInsertion()
+
+function compareByValueAndSuit(x, y)
+
+    if x[length(x)] == y[length(y)]
+        return compareByValue(x,y)
+    end
+
+    suit = ['♦','♠','♥','♣']
+    compX = compY = 0
+
+    for index in 1 : length(suit)
+
+        if suit[index] == x[length(x)]
+            compX = index
+        end
+
+        if suit[index] == y[length(y)]
+            compY = index
+        end
+
+    end
+
+    if compX < compY
+        return true
+    else
+        return false
+    end
+
+end
+
+checkValueAndSuit()
