@@ -27,6 +27,22 @@ function checkInsertion()
     println("OK")
 end
 
+function checkValueAndSuit() # ♦ < ♠ < ♥ < ♣
+    @test compareByValueAndSuit("10♠", "10♥") == true
+    @test compareByValueAndSuit("2♠", "A♠") == true
+    @test compareByValueAndSuit("K♠", "10♥") == true
+    @test compareByValueAndSuit("10♦", "K♠") == true
+    @test compareByValueAndSuit("J♠", "A♠") == true
+    @test compareByValueAndSuit("A♠","J♠") == false
+    @test compareByValueAndSuit("2♠", "3♦") == false
+    @test compareByValueAndSuit("J♠", "7♥") == true
+    @test compareByValueAndSuit("J♣", "J♥") == false
+    @test compareByValueAndSuit("K♣", "K♠") == false
+    @test compareByValueAndSuit("Q♦", "Q♣") == true
+    @test compareByValueAndSuit("A♣", "A♠") == false
+    println("OK")
+end
+
 function compareByValue(x, y)
 
     value = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
