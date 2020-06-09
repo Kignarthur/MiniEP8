@@ -53,3 +53,30 @@ function compareByValue(x, y)
 end
 
 checkValue()
+
+function swap(vector, i, j)
+    aux = vector[i]
+    vector[i] = vector[j]
+    vector[j] = aux
+end
+
+function insertion(vector)
+
+    for i in 2 : length(vector)
+        j = i
+
+        while j > 1
+            if compareByValue(vector[j], vector[j - 1])
+                swap(vector, j, j - 1)
+            else
+                break
+            end
+            j -= 1
+        end
+
+    end
+    
+    return vector
+end
+
+checkInsertion()
