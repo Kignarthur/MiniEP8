@@ -16,6 +16,17 @@ function checkValue()
     println("OK")
 end
 
+function checkInsertion()
+    @test insertion(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♥","10♦","J♠","K♠","A♠","A♠"]
+    @test insertion([]) == []
+    @test insertion(["10♥"]) == ["10♥"]
+    @test insertion(["K♦", "K♠"]) == ["K♦", "K♠"]
+    @test insertion(["A♠","4♥", "3♦", "2♠", "K♠"]) ==["1♠","2♠","3♦","4♥","K♠","A♠"]
+    @test insertion(["A♠","A♠","A♠","2♠"]) == ["2♠","A♠","A♠","A♠"]
+    @test insertion(["10♥","K♠","A♠"]) == ["10♥","K♠","A♠"]
+    println("OK")
+end
+
 function compareByValue(x, y)
 
     value = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
