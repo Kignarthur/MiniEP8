@@ -141,3 +141,24 @@ function compareByValueAndSuit(x, y)
 end
 
 checkValueAndSuit()
+
+function insertionWithSuit(vector)
+
+    for i in 2 : length(vector)
+        j = i
+
+        while j > 1
+            if compareByValueAndSuit(vector[j], vector[j - 1])
+                swap(vector, j, j - 1)
+            else
+                break
+            end
+            j -= 1
+        end
+
+    end
+    
+    return vector
+end
+
+checkInsertionWithSuit()
