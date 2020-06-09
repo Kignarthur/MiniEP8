@@ -46,6 +46,17 @@ function checkValueAndSuit() # ♦ < ♠ < ♥ < ♣
     println("OK")
 end
 
+function checkInsertionWithSuit()
+    @test insertionWithSuit(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♦","J♠","K♠","A♠","A♠","10♥"]
+    @test insertionWithSuit([]) == []
+    @test insertionWithSuit(["10♥"]) == ["10♥"]
+    @test insertionWithSuit(["K♦", "K♠"]) == ["K♦", "K♠"]
+    @test insertionWithSuit(["A♠","4♣", "3♦", "2♠", "K♠"]) ==["3♦","2♠","K♠","A♠","4♣"]
+    @test insertionWithSuit(["A♣","A♥","A♠","2♠","A♦"]) == ["A♦","2♠","A♠","A♥","A♣"]
+    @test insertionWithSuit(["K♠","A♠","10♥"]) == ["10♥","K♠","A♠"]
+    println("OK")
+end
+
 function compareByValue(x, y)
 
     value = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
