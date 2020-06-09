@@ -53,7 +53,7 @@ function checkInsertionWithSuit()
     @test insertionWithSuit(["K♦", "K♠"]) == ["K♦", "K♠"]
     @test insertionWithSuit(["A♠","4♣", "3♦", "2♠", "K♠"]) ==["3♦","2♠","K♠","A♠","4♣"]
     @test insertionWithSuit(["A♣","A♥","A♠","2♠","A♦"]) == ["A♦","2♠","A♠","A♥","A♣"]
-    @test insertionWithSuit(["K♠","A♠","10♥"]) == ["10♥","K♠","A♠"]
+    @test insertionWithSuit(["10♥","K♠","A♠"]) == ["K♠","A♠","10♥"]
     println("OK")
 end
 
