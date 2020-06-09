@@ -47,13 +47,13 @@ function checkValueAndSuit() # ♦ < ♠ < ♥ < ♣
 end
 
 function checkInsertionWithSuit()
-    @test insertionWithSuit(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♦","J♠","K♠","A♠","A♠","10♥"]
-    @test insertionWithSuit([]) == []
-    @test insertionWithSuit(["10♥"]) == ["10♥"]
-    @test insertionWithSuit(["K♦", "K♠"]) == ["K♦", "K♠"]
-    @test insertionWithSuit(["A♠","4♣", "3♦", "2♠", "K♠"]) ==["3♦","2♠","K♠","A♠","4♣"]
-    @test insertionWithSuit(["A♣","A♥","A♠","2♠","A♦"]) == ["A♦","2♠","A♠","A♥","A♣"]
-    @test insertionWithSuit(["10♥","K♠","A♠"]) == ["K♠","A♠","10♥"]
+    @test insertion(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♦","J♠","K♠","A♠","A♠","10♥"]
+    @test insertion([]) == []
+    @test insertion(["10♥"]) == ["10♥"]
+    @test insertion(["K♦", "K♠"]) == ["K♦", "K♠"]
+    @test insertion(["A♠","4♣", "3♦", "2♠", "K♠"]) ==["3♦","2♠","K♠","A♠","4♣"]
+    @test insertion(["A♣","A♥","A♠","2♠","A♦"]) == ["A♦","2♠","A♠","A♥","A♣"]
+    @test insertion(["10♥","K♠","A♠"]) == ["K♠","A♠","10♥"]
     println("OK")
 end
 
@@ -142,7 +142,7 @@ end
 
 checkValueAndSuit()
 
-function insertionWithSuit(vector)
+function insertion(vector)
 
     for i in 2 : length(vector)
         j = i
