@@ -15,3 +15,30 @@ function checkValue()
     @test compareByValue("A♦", "A♠") == false
     println("OK")
 end
+
+function compareByValue(x, y)
+
+    value = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
+    compX = compY = 0
+
+    for index in 1 : length(value)
+
+        if value[index] == x[1:length(x)-1]
+            compX = index
+        end
+
+        if value[index] == y[1:length(y)-1]
+            compY = index
+        end
+
+    end
+
+    if compX < compY
+        return true
+    else
+        return false
+    end
+
+end
+
+checkValue()
