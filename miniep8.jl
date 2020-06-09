@@ -40,6 +40,9 @@ function checkValueAndSuit() # ♦ < ♠ < ♥ < ♣
     @test compareByValueAndSuit("K♣", "K♠") == false
     @test compareByValueAndSuit("Q♦", "Q♣") == true
     @test compareByValueAndSuit("A♣", "A♠") == false
+    @test compareByValueAndSuit("A♣", "A♣") == false
+    @test compareByValueAndSuit("10♠", "A♠") == true
+    @test compareByValueAndSuit("A♠", "10♠") == false
     println("OK")
 end
 
