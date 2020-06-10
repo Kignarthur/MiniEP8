@@ -60,26 +60,22 @@ end
 function compareByValue(x, y)
 
     value = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
-    compX = compY = 0
+    xValue = 0
+    yValue = 0
 
     for index in 1 : length(value)
 
-        if value[index] == x[1:length(x)-1]
-            compX = index
+        if x[1 : lastindex(x) - 1] == value[index]
+            xValue = index
         end
 
-        if value[index] == y[1:length(y)-1]
-            compY = index
+        if y[1 : lastindex(y) - 1] == value[index]
+            yValue = index
         end
 
     end
 
-    if compX < compY
-        return true
-    else
-        return false
-    end
-
+    return xValue < yValue
 end
 
 checkValue()
@@ -118,25 +114,22 @@ function compareByValueAndSuit(x, y)
     end
 
     suit = ['♦','♠','♥','♣']
-    compX = compY = 0
+    xSuit = 0
+    ySuit = 0
 
     for index in 1 : length(suit)
 
-        if suit[index] == x[length(x)]
-            compX = index
+        if x[lastindex(x)] == suit[index]
+            xSuit = index
         end
 
-        if suit[index] == y[length(y)]
-            compY = index
+        if y[lastindex(y)] == suit[index]
+            ySuit = index
         end
 
     end
 
-    if compX < compY
-        return true
-    else
-        return false
-    end
+    return xSuit < ySuit
 
 end
 
