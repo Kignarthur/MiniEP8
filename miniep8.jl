@@ -17,13 +17,12 @@ function checkValue()
 end
 
 function checkInsertion()
-    @test insertion(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♥","10♦","J♠","K♠","A♠","A♠"]
     @test insertion([]) == []
     @test insertion(["10♥"]) == ["10♥"]
-    @test insertion(["K♦", "K♠"]) == ["K♦", "K♠"]
-    @test insertion(["A♠","4♥", "3♦", "2♠", "K♠"]) ==["2♠","3♦","4♥","K♠","A♠"]
-    @test insertion(["A♠","A♠","A♠","2♠"]) == ["2♠","A♠","A♠","A♠"]
     @test insertion(["10♥","K♠","A♠"]) == ["10♥","K♠","A♠"]
+    @test insertion(["A♠","A♠","A♠","2♠"]) == ["2♠","A♠","A♠","A♠"]
+    @test insertion(["A♠","4♥", "3♦", "2♠", "K♠"]) ==["2♠","3♦","4♥","K♠","A♠"]
+    @test insertion(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♥","10♦","J♠","K♠","A♠","A♠"]
     println("OK")
 end
 
@@ -47,13 +46,13 @@ function checkValueAndSuit() # ♦ < ♠ < ♥ < ♣
 end
 
 function checkInsertionWithSuit()
-    @test insertion(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♦","J♠","K♠","A♠","A♠","10♥"]
-    @test insertion([]) == []
-    @test insertion(["10♥"]) == ["10♥"]
-    @test insertion(["K♦", "K♠"]) == ["K♦", "K♠"]
-    @test insertion(["A♠","4♣", "3♦", "2♠", "K♠"]) ==["3♦","2♠","K♠","A♠","4♣"]
-    @test insertion(["A♣","A♥","A♠","2♠","A♦"]) == ["A♦","2♠","A♠","A♥","A♣"]
-    @test insertion(["10♥","K♠","A♠"]) == ["K♠","A♠","10♥"]
+    @test insercao([]) == []
+    @test insercao(["10♥"]) == ["10♥"]
+    @test insercao(["K♦", "K♠"]) == ["K♦", "K♠"]
+    @test insercao(["10♥","K♠","A♠"]) == ["K♠","A♠","10♥"]
+    @test insercao(["A♣","A♥","A♠","2♠","A♦"]) == ["A♦","2♠","A♠","A♥","A♣"]
+    @test insercao(["A♠","4♣", "3♦", "2♠", "K♠"]) ==["3♦","2♠","K♠","A♠","4♣"]
+    @test insercao(["10♥", "10♦", "K♠", "A♠", "J♠", "A♠"]) == ["10♦","J♠","K♠","A♠","A♠","10♥"]
     println("OK")
 end
 
@@ -80,20 +79,20 @@ end
 
 checkValue()
 
-function swap(vector, i, j)
+function troca(vector, i, j)
     aux = vector[i]
     vector[i] = vector[j]
     vector[j] = aux
 end
 
-function insertion(vector)
+function insercao(vector)
 
     for i in 2 : length(vector)
         j = i
 
         while j > 1
             if compareByValue(vector[j], vector[j - 1])
-                swap(vector, j, j - 1)
+                troca(vector, j, j - 1)
             else
                 break
             end
@@ -142,7 +141,7 @@ function insertion(vector)
 
         while j > 1
             if compareByValueAndSuit(vector[j], vector[j - 1])
-                swap(vector, j, j - 1)
+                troca(vector, j, j - 1)
             else
                 break
             end
